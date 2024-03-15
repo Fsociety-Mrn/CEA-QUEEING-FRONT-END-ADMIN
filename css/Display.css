@@ -1,0 +1,92 @@
+*{
+  margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.header{
+  background-image: linear-gradient(orange 70%,white 110%);
+  height: 20vh;
+  width: auto;
+  border-bottom-right-radius: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+.CEATlogo{
+  height: 130px;
+  width: 150px;
+}
+.RTUlogo{
+  height: 130px;
+  width: 150px;
+}
+.header_photo1{
+  height: 150px;
+  width: 150px;
+}
+.header_photo2{
+      height: 130px;
+      width: 150px;   
+}
+h3{
+  color:black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size:40px;
+  padding: 40px;
+  text-align: center;
+}
+h1{
+  color: orange;
+  text-align: left;
+  margin: 20px;
+}
+.container{
+  height: 75vh;
+  background-color: rebeccapurple;
+display: flex;
+flex-direction:column;
+}
+.container1 {
+  height: auto; /* Adjusted to auto to accommodate content size */
+  min-height: 75vh; /* Ensures the container has a minimum height but can grow */
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers children horizontally */
+  align-items: center; /* Centers children vertically (effective when there's enough space) */
+  padding: 20px; /* Adds some padding inside the container */
+}
+
+.container2{
+height: 75vh;
+width: 100%;
+
+
+}
+.box{
+  margin: 1rem;
+  height: 35vh;
+  width: 48%;
+  background-color: transparent;
+  border: 5px solid black;
+  border-radius:1rem;
+  text-align: center;
+}
+.box2{
+  height: 25vh;
+  width: 96%;
+  background-color: white;
+  margin: 1rem;
+border: 5px solid black;
+border-radius:1rem;
+}
+h6{
+  font-size: 2rem;
+  text-align: center;
+  padding: .5rem;
+}
