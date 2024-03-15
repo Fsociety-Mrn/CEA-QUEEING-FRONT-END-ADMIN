@@ -30,9 +30,9 @@
               <div class="brand-logo">
                 <h1>Admin</h1>
               </div>
-             
+             <!-- Login Form  -->
               <h6 class="font-weight-light">Sign in to continue.</h6>
-            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <!-- <form method="POST" > -->
                <div class="form-group">
                  <input type="text" name="username" class="form-control form-control-lg" id="username" placeholder="Username" required>
               </div>
@@ -40,11 +40,11 @@
                 <input type="password" name="password" class="form-control form-control-lg" id="password" placeholder="Password" required>
                </div>
                <div class="mt-3">
-              <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
+              <button type="submit" onclick="handleLoginForm()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">SIGN IN</button>
               </div>
  
    
-            </form>
+            <!-- </form> -->
 
             </div>
           </div>
@@ -61,12 +61,52 @@
   <!-- Plugin js for this page -->
   <!-- End plugin js for this page -->
   <!-- inject:js -->
+
   <script src="admin/js/off-canvas.js"></script>
   <script src="admin/js/hoverable-collapse.js"></script>
   <script src="admin/js/template.js"></script>
   <script src="admin/js/settings.js"></script>
   <script src="admin/js/todolist.js"></script>
   <!-- endinject -->
+
+  <script src="./EnvSecret.js"></script>
+  <script>
+    async function handleLoginForm() {
+   
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+        try {
+          const response = await fetch(mySecrets().api + "/login_as_admin", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': mySecrets().secret
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
+
+       
+        const data = await response.json();
+        console.log(data['login status'])
+        if (data['login status']) {
+            window.location.href = '/admin/admin'; // Redirect to dashboard
+        } else {
+            document.getElementById('message').textContent = data.message;
+        }
+     
+    } catch (error) {
+        console.error('There was a problem with the fetch operation:', error);
+    }
+
+    }
+
+</script>
+
+
 </body>
 
 </html>
