@@ -72,7 +72,7 @@
   <script src="./EnvSecret.js"></script>
   <script>
     async function handleLoginForm() {
-   
+      sessionStorage.clear();
       var username = document.getElementById("username").value;
       var password = document.getElementById("password").value;
 
@@ -91,8 +91,14 @@
 
        
         const data = await response.json();
+        console.log(data)
+
         console.log(data['login status'])
         if (data['login status']) {
+            sessionStorage.setItem("userID",data.data[0])
+            sessionStorage.setItem("cardUID",data.data[1])
+            sessionStorage.setItem("username",data.data[2])
+            sessionStorage.setItem("name",data.data[3])
             window.location.href = '/admin/admin'; // Redirect to dashboard
         } else {
             document.getElementById('message').textContent = data.message;

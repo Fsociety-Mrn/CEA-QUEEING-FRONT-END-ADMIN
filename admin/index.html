@@ -57,7 +57,7 @@
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a href="pages/samples/login.html" class="dropdown-item">
+              <a onclick="Logout()" class="dropdown-item">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -177,6 +177,12 @@
   <!-- Custom js for this page-->
   <script src="js/dashboard.js"></script>
   <script src="js/Chart.roundedBarCharts.js"></script>
+  <script >
+    function Logout(){
+      sessionStorage.clear();
+      window.location.href = '/admin/Login.php'; 
+    }
+  </script>
   <!-- End custom js for this page-->
 </body>
 

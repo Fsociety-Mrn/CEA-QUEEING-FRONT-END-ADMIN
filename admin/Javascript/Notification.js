@@ -1,9 +1,10 @@
 window.onload = async function() {
-
+    const getName = sessionStorage.getItem("name")
+    console.log(getName)
     // fetch data
-    await appointment("fillup","hello friend","pending","")
-    await appointment("proceed","hello friend","accept","proceed")
-    await appointment("proceed","hello friend","reject","reject")
+    await appointment("fillup",String(getName),"pending","")
+    await appointment("proceed",String(getName),"accept","proceed")
+    await appointment("proceed",String(getName),"reject","reject")
 };
 
 async function appointment(tableName,name,dataTable,type){
@@ -76,7 +77,7 @@ async function update_appointment(status,id_value,uid_value){
 
     try {
         const response = await fetch(mySecrets().api + "/update_appointment", {
-          method: 'POST',
+          method: 'PUT',
           headers: {
               'Content-Type': 'application/json',
               'Authorization': mySecrets().secret
