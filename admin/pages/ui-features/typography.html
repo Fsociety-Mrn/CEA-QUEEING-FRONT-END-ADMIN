@@ -127,11 +127,21 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Manage Account</h4>
-                  <form id="manageAccountForm">
+
+
+                    <!-- Name -->
+                    <div class="form-group">
+                      <label for="username">Name</label>
+                      <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <!-- Username -->
                     <div class="form-group">
                       <label for="username">Username</label>
                       <input type="text" class="form-control" id="username" name="username" required>
                     </div>
+
+                    <!-- Password -->
                     <div class="form-group">
                       <label for="cpassword">Current Password</label>
                       <input type="password" class="form-control" id="cpassword" name="cpassword" required>
@@ -140,23 +150,22 @@
                       <label for="npassword">New Password</label>
                       <input type="password" class="form-control" id="npassword" name="npassword" required>
                     </div>
+                    <button class="btn btn-primary" onclick="update_password()">Save Password</button>
+
+                    <br/>
+                    <br/>
+        
+
+                    <!-- CARD RFID -->
                     <div class="form-group">
-                      <label for="birthday">Birthday</label>
-                      <input type="date" class="form-control" id="birthday" name="birthday" required>
+                      <label for="npassword">CARD UID</label>
+                      <input type="password" class="form-control" id="rfid" name="rfid" required>
                     </div>
-                    <div class="form-group">
-                      <label for="sex">Sex</label>
-                      <select class="form-control" id="sex" name="sex" required>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label for="age">Age</label>
-                      <input type="number" class="form-control" id="age" name="age" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                  </form>
+                    <button  class="btn btn-primary">Update RFID</button>
+
+
+   
+
                 </div>
               </div>
             </div>
@@ -176,7 +185,8 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
+  <script src="../../../EnvSecret.js"></script>
+  <script src="../../Javascript/AccountSettings.js"></script>
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
@@ -203,6 +213,7 @@
       window.location.href = '/admin/Login.php'; 
     }
   </script>
+
   <!-- End custom js for this page-->
 </body>
 
